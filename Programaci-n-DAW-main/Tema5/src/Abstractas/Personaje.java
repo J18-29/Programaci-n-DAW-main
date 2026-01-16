@@ -1,6 +1,7 @@
-package Herencia;
+package Abstractas;
 
 public abstract class Personaje {
+
     protected String nombre;
     protected int vida;
 
@@ -18,16 +19,12 @@ public abstract class Personaje {
         if (vida < 0) {
             vida = 0;
         }
-    }
-
-    // Método abstracto
-    public abstract int atacar();
-
-    public void mostrarEstado() {
-        System.out.println(nombre + " - Vida: " + vida);
+        System.out.println(nombre + " recibe " + daño + " de daño. Vida restante: " + vida);
     }
 
     public String getNombre() {
         return nombre;
     }
+
+    public abstract int atacar();
 }
