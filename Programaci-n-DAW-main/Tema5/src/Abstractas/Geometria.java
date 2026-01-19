@@ -5,8 +5,8 @@ public class Geometria {
 
         // Caja solo de círculos
         CajaFiguras<Circulo> cajaCirculos = new CajaFiguras<>();
-        cajaCirculos.guardar(new Circulo("Círculo 1", 3));
-        cajaCirculos.guardar(new Circulo("Círculo 2", 5));
+        cajaCirculos.guardar(new Circulo("Círculo 1", 5));
+        cajaCirculos.guardar(new Circulo("Círculo 2", 10));
 
         // Caja solo de rectángulos
         CajaFiguras<Rectangulo> cajaRectangulos = new CajaFiguras<>();
