@@ -8,7 +8,7 @@ public class Arrays9 {
         ArrayList<Integer> lista = new ArrayList<>();
 
         // Scanner para leer la entrada del usuario
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
 
         int opcion; // Variable para almacenar la opción elegida en el menú
 
@@ -90,5 +90,6 @@ public class Arrays9 {
             }
 
         } while (opcion != 7); // Repetir mientras no se elija salir
+        }
     }
 }

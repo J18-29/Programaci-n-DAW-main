@@ -17,6 +17,8 @@ public class Arrays8 {
         } else {
             System.out.println("La frase no es palíndroma");
         }
+        
+        sc.close();
     }
 
     // Método que devuelve true si el texto es palíndromo, false si no

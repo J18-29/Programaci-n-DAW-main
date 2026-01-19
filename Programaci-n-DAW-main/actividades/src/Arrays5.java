@@ -36,5 +36,7 @@ public class Arrays5 {
 
         // Mostramos el número total de aciertos
         System.out.println("Número de aciertos: " + aciertos);
+        
+        sc.close();
     }
 }

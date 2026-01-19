@@ -29,6 +29,7 @@ public class Relacion6 {
             sueldoBase = 1600;
         } else {
             System.out.println("Cargo no válido.");
+            sc.close();
             return; // Salimos del programa si el cargo no es válido
         }
 
@@ -53,6 +54,7 @@ public class Relacion6 {
             porcentajeIRPF = 0.20;
         } else {
             System.out.println("Estado civil no válido.");
+            sc.close();
             return;
         }
 

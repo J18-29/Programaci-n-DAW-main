@@ -30,5 +30,8 @@ public class Arrays2 {
 
         // Mostrar el vector ordenado
         System.out.println("Vector ordenado de mayor a menor: " + Arrays.toString(numeros));
+        
+        // Cerrar el Scanner
+        sc.close();
     }
 }
