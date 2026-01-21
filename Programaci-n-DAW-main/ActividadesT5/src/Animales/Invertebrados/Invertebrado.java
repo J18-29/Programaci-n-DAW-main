@@ -1,5 +1,12 @@
 package Animales.Invertebrados;
 
-public class Invertebrado {
-    
+
+
+import Animales.Animal;
+
+public abstract class Invertebrado extends Animal {
+
+    public Invertebrado(String nombre) {
+        super(nombre);
+    }
 }

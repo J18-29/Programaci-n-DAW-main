@@ -1,0 +1,17 @@
+{
+ "curso": "DAW",
+ "alumnos": [
+ {
+ "nombre": "Juan",
+ "notas": [7, 8, 9]
+ },
+ {
+ "nombre": "Ana",
+ "notas": [8, 9, 10]
+ },
+ {
+ "nombre": "Pedro",
+ "notas": [4, 6, 3]
+ }
+ ]
+}

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ControlAcceso {
 
     private static final int MAX_INTENTOS = 3;
-    private static final String FICHERO_USUARIOS = "usuarios.txt";
+    private static final String FICHERO_USUARIOS = "Programaci-n-DAW-main/ActividadesT5/usuarios.txt";
 
     public static void main(String[] args) {
 
