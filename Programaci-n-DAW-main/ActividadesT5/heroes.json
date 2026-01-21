@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "superhero": "Green Lantern",
+    "publisher": "DC",
+    "alter_ego": "Hal Jordan",
+    "first_appearance": "Showcase #22"
+  },
+  {
+    "id": 2,
+    "superhero": "Batman",
+    "publisher": "DC",
+    "alter_ego": "Bruce Wayne",
+    "first_appearance": "Detective Comics #27"
+  },
+  {
+    "id": 3,
+    "superhero": "Green Arrow",
+    "publisher": "DC",
+    "alter_ego": "Oliver Queen",
+    "first_appearance": "More Fun Comics #73"
+  },
+  {
+    "id": 4,
+    "superhero": "Spider-Man",
+    "publisher": "Marvel",
+    "alter_ego": "Peter Parker",
+    "first_appearance": "Amazing Fantasy #15"
+  },
+  {
+    "id": 5,
+    "superhero": "Gambit",
+    "publisher": "Marvel",
+    "alter_ego": "Remy LeBeau",
+    "first_appearance": "Uncanny X-Men #266"
+  },
+  {
+    "id": 6,
+    "superhero": "Ghost Rider",
+    "publisher": "Marvel",
+    "alter_ego": "Johnny Blaze",
+    "first_appearance": "Marvel Spotlight #5"
+  },
+  {
+    "id": 7,
+    "superhero": "Green Lantern (Chica)",
+    "publisher": "DC",
+    "alter_ego": "Jessica Cruz",
+    "first_appearance": "Justice League Vol. 2 #7"
+  },
+  {
+    "id": 8,
+    "superhero": "Goliath",
+    "publisher": "DC",
+    "alter_ego": "Tom Stall",
+    "first_appearance": "DC Comics Presents #23"
+  }
+]
