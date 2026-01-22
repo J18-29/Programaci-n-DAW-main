@@ -8,7 +8,7 @@ public class HeroesDC {
 
         StringBuilder jsonBuilder = new StringBuilder();
 
-        // 1️⃣ Leer el fichero heroes.json
+        // 1 Leer el fichero heroes.json
         try (BufferedReader br = new BufferedReader(new FileReader("Programaci-n-DAW-main/ActividadesT5/heroes.json"))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -21,7 +21,7 @@ public class HeroesDC {
 
         String json = jsonBuilder.toString();
 
-        // 2️⃣ Separar los héroes (cada bloque entre {})
+        // 2 Separar los héroes (cada bloque entre {})
         String[] heroes = json.split("\\},\\{");
 
         System.out.printf("%-20s | %-20s | %-20s%n", "Superhero", "Alter Ego", "First Appearance");

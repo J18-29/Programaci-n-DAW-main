@@ -16,11 +16,11 @@ public class Animalpedia {
             new Reptil("Lagarto"),
             new Anfibio("Rana"),
             new Pez("Salmón"),
-            new Artropodo("Hormiga"),
+            new Aracnido("Araña"),
             new Molusco("Caracol"),
             new Anelido("Lombriz"),
             new Equinodermo("Erizo de mar"),
-            new Cnidario("Medusa")
+            new Cefalopodo("Calamar")
         };
 
         for (Animal a : animales) {
