@@ -6,28 +6,34 @@ import java.util.Scanner;
 
 public class ControlAcceso {
 
-    private static final int MAX_INTENTOS = 3;
-    private static final String FICHERO_USUARIOS = "Programaci-n-DAW-main/ActividadesT5/usuarios.txt";
-
     public static void main(String[] args) {
 
-        HashMap<String, String> usuarios = cargarUsuarios();
+        HashMap<String, String> usuarios = new HashMap<>();
 
-        if (usuarios.isEmpty()) {
-            System.out.println("No se pudieron cargar los usuarios.");
+        // Leer el fichero y cargar el HashMap
+        try (BufferedReader br = new BufferedReader(new FileReader("Programaci-n-DAW-main/ActividadesT5/usuarios.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(":");
+                if (partes.length == 2) {
+                    usuarios.put(partes[0], partes[1]);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el fichero de usuarios.");
             return;
         }
 
         Scanner sc = new Scanner(System.in);
-        int intentos = 0;
+        int intentos = 3;
         boolean acceso = false;
 
-        while (intentos < MAX_INTENTOS && !acceso) {
+        while (intentos > 0 && !acceso) {
 
-            System.out.print("Introduce nombre de usuario: ");
+            System.out.print("Introduzca nombre de usuario: ");
             String usuario = sc.nextLine();
 
-            System.out.print("Introduce contraseña: ");
+            System.out.print("Introduzca contraseña: ");
             String password = sc.nextLine();
 
             if (usuarios.containsKey(usuario) &&
@@ -35,10 +41,10 @@ public class ControlAcceso {
 
                 System.out.println("Ha accedido al área restringida");
                 acceso = true;
+
             } else {
-                intentos++;
-                System.out.println("Datos incorrectos. Intentos restantes: "
-                        + (MAX_INTENTOS - intentos));
+                intentos--;
+                System.out.println("Datos incorrectos. Intentos restantes: " + intentos);
             }
         }
 
@@ -47,28 +53,5 @@ public class ControlAcceso {
         }
 
         sc.close();
-    }
-
-    // Método para cargar usuarios desde el fichero
-    private static HashMap<String, String> cargarUsuarios() {
-        HashMap<String, String> mapa = new HashMap<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(FICHERO_USUARIOS))) {
-            String linea;
-
-            while ((linea = br.readLine()) != null) {
-                if (linea.length() > 0) {
-                    // Separamos usuario y contraseña
-                    String usuario = linea.substring(0, linea.length() / 2);
-                    String password = linea.substring(linea.length() / 2);
-                    mapa.put(usuario, password);
-                }
-            }
-
-        } catch (IOException e) {
-            System.out.println("Error al leer el fichero: " + e.getMessage());
-        }
-
-        return mapa;
     }
 }
