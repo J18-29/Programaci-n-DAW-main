@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjemploMap",
+            "request": "launch",
+            "mainClass": "EjemploMap",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio1",
+            "request": "launch",
+            "mainClass": "Ejercicio1",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Ejercicio4.Main",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio3",
+            "request": "launch",
+            "mainClass": "Ejercicio3",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2",
+            "request": "launch",
+            "mainClass": "Ejercicio2",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "Duelos",
             "request": "launch",
             "mainClass": "Abstractas.Duelos",
