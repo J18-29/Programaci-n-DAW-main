@@ -1,6 +1,10 @@
 package Interfaces;
 public class Coche implements Movible, Sonoro {
 
+    public Coche(String string) {
+        
+    }
+
     @Override
     public void mover() {
         System.out.println("El coche avanza por la carretera");
