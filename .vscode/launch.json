@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GestionAlumnosCSV",
+            "request": "launch",
+            "mainClass": "GestionAlumnosCSV",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "AccionVehiculos",
             "request": "launch",
             "mainClass": "Interfaces.AccionVehiculos",
