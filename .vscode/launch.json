@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Duelos",
+            "request": "launch",
+            "mainClass": "Abstractas.Duelos",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "Geometria",
             "request": "launch",
             "mainClass": "Abstractas.Geometria",
