@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AccionVehiculos",
+            "request": "launch",
+            "mainClass": "Interfaces.AccionVehiculos",
+            "projectName": "Programaci-n-DAW-main_7af13b1e"
+        },
+        {
+            "type": "java",
+            "name": "GestionAlumnosCSV",
+            "request": "launch",
+            "mainClass": "GestionAlumnosCSV",
+            "projectName": "Programaci-n-DAW-main_7af13b1e"
+        },
+        {
+            "type": "java",
+            "name": "ContadorPalabras",
+            "request": "launch",
+            "mainClass": "ContadorPalabras",
+            "projectName": "Programaci-n-DAW-main_7af13b1e"
+        },
+        {
+            "type": "java",
+            "name": "CrearTablas",
+            "request": "launch",
+            "mainClass": "ActividadER.CrearTablas",
+            "projectName": "Programaci-n-DAW-main_7af13b1e"
+        },
+        {
+            "type": "java",
+            "name": "ActividadER",
+            "request": "launch",
+            "mainClass": "ActividadER",
+            "projectName": "Programaci-n-DAW-main_7af13b1e"
+        },
+        {
+            "type": "java",
+            "name": "AppBD",
+            "request": "launch",
+            "mainClass": "AppBD",
+            "projectName": "Programaci-n-DAW-main_7af13b1e"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}
