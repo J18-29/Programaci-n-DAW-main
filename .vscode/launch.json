@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClaseAlumnos",
+            "request": "launch",
+            "mainClass": "ClaseAlumnos",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "PruebaClase",
             "request": "launch",
             "mainClass": "PruebaClase",
