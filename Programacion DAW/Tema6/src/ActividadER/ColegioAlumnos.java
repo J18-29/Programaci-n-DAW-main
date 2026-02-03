@@ -15,6 +15,6 @@ public class ColegioAlumnos {
         matricula.mostrar();
 
         System.out.println("Profesor de la asignatura: " +
-                asig.getProfesor().getNombreCompleto());
+         asig.getProfesor().getNombreCompleto());
     }
 }
