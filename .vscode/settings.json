@@ -5,6 +5,8 @@
     ],
     "java.project.sourcePaths": [
         "Programacion DAW/Tema5/src",
-        "Programacion DAW/ExamenT5/src/Ejercicio4"
+        "Programacion DAW/ExamenT5/src/Ejercicio4",
+        "Programacion DAW/ExamenT5/src",
+        "Programacion DAW/ActividadesT5/src"
     ]
 }

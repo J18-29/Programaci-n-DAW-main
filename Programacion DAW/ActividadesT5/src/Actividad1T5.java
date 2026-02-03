@@ -9,7 +9,6 @@ public class Actividad1T5 {
         Scanner sc = new Scanner(System.in);
 
         try {
-            // Pedir rutas
             System.out.print("Introduce la ruta del primer fichero: ");
             String ruta1 = sc.nextLine();
 
@@ -22,11 +21,9 @@ public class Actividad1T5 {
             File fichero1 = new File(ruta1);
             File fichero2 = new File(ruta2);
 
-            // Obtener nombres sin extensión
             String nombre1 = fichero1.getName().replace(".txt", "");
             String nombre2 = fichero2.getName().replace(".txt", "");
 
-            // Crear fichero destino
             File ficheroResultado = new File(
                     rutaDestino + File.separator + nombre1 + "_" + nombre2 + ".txt"
             );
@@ -37,13 +34,11 @@ public class Actividad1T5 {
 
             String linea;
 
-            // Copiar primer fichero
             while ((linea = br1.readLine()) != null) {
                 bw.write(linea);
                 bw.newLine();
             }
 
-            // Copiar segundo fichero
             while ((linea = br2.readLine()) != null) {
                 bw.write(linea);
                 bw.newLine();

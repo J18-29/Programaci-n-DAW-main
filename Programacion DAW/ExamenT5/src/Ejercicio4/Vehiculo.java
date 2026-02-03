@@ -1,6 +1,4 @@
-
-
-public class Vehiculo {
+public abstract class Vehiculo implements Parkeable {
     private String matricula;
     private static int plazasOcupadas = 0;
     private static int plazasTotales = 50;
@@ -9,20 +7,24 @@ public class Vehiculo {
         this.matricula = matricula;
     }
 
+    @Override
     public void entrar() {
-        System.out.println("El vehículo con matrícula " + matricula + " ha entrado al parking.");
-        plazasOcupadas++;
+        if (plazasOcupadas < plazasTotales) {
+            plazasOcupadas++;
+            System.out.println("Vehículo con matrícula " + matricula + " ha entrado. Plazas ocupadas: " + plazasOcupadas);
+        } else {
+            System.out.println("No hay plazas disponibles para el vehículo con matrícula " + matricula);
+        }
     }
-
+    @Override
     public void salir() {
-        System.out.println("El vehículo con matrícula " + matricula + " ha salido del parking.");
-        plazasOcupadas--;
+        if (plazasOcupadas > 0) {
+            plazasOcupadas--;
+            System.out.println("Vehículo con matrícula " + matricula + " ha salido. Plazas ocupadas: " + plazasOcupadas);
+        } else {
+            System.out.println("No hay vehículos para salir.");
+        }
     }
-
-    public static int getPlazasLibres() {
-        return plazasTotales - plazasOcupadas;
-    }
-
     
 } 
     
