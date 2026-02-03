@@ -1,6 +1,4 @@
-package Ejercicio4;
-// Habrá una interfaz Parkeable, que tendrá el atributo de plazas=50 y las funciones entrar,
-// salir y calcularPrecio(horas)
+
 public class Parkeable extends Vehiculo {
 
     public Parkeable(String matricula) {

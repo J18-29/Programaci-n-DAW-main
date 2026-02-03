@@ -2,5 +2,9 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "c:\\Users\\usuario\\Downloads\\mysql-connector-j-9.5.0.jar"
+    ],
+    "java.project.sourcePaths": [
+        "Programacion DAW/Tema5/src",
+        "Programacion DAW/ExamenT5/src/Ejercicio4"
     ]
 }
