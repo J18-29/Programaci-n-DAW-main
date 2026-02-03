@@ -10,6 +10,7 @@ public class ColegioAlumnos {
         Alumno2DAO alu = new Alumno2DAO(1001, "Carlos", "López", "Martín",LocalDate.of(2004, 5, 10), "699888777");
 
         CursoEscolarDAO curso = new CursoEscolarDAO(1, 2024, 2025);     
+        
         SeMatriculaDAO matricula = new SeMatriculaDAO(alu, asig, curso);
 
         matricula.mostrar();
