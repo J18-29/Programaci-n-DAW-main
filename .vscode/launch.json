@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Entrevistas",
+            "request": "launch",
+            "mainClass": "Entrevistas",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "Seleccion",
+            "request": "launch",
+            "mainClass": "Seleccion",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "ColegioAlumnos",
             "request": "launch",
             "mainClass": "ColegioAlumnos",

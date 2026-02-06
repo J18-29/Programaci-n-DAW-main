@@ -4,10 +4,11 @@
         "c:\\Users\\usuario\\Downloads\\mysql-connector-j-9.5.0.jar"
     ],
     "java.project.sourcePaths": [
+        "Programacion DAW/Tema6/src/ActividadER",
         "Programacion DAW/Tema5/src",
         "Programacion DAW/ExamenT5/src/Ejercicio4",
         "Programacion DAW/ExamenT5/src",
         "Programacion DAW/ActividadesT5/src",
-        "Programacion DAW/Tema6/src/ActividadER"
+        "Programacion DAW/Tema6/src/ActividadER2"
     ]
 }
