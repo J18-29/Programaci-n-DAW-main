@@ -1,6 +1,6 @@
 
 
-public class PeriodistaDAO {
+public class PeriodistaDAO2 {
      int id;
      String nombre;
      String apellido1;
@@ -8,7 +8,7 @@ public class PeriodistaDAO {
      String telefono;
      String especialidad;
 
-    public PeriodistaDAO(int id, String nombre, String apellido1,
+    public PeriodistaDAO2(int id, String nombre, String apellido1,
                       String apellido2, String telefono, String especialidad) {
         this.id = id;
         this.nombre = nombre;

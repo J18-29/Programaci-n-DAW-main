@@ -1,6 +1,6 @@
 
 
-public class EmpleadoDAO {
+public class EmpleadoDAO2 {
      int id;
      String nif;
      String nombre;
@@ -8,9 +8,9 @@ public class EmpleadoDAO {
      String apellido2;
      String telefono;
 
-     SucursalDAO sucursal;
+     SucursalDAO2 sucursal;
 
-    public EmpleadoDAO(int id, String nif, String nombre, String apellido1,String apellido2, String telefono, SucursalDAO sucursal) {
+    public EmpleadoDAO2(int id, String nif, String nombre, String apellido1,String apellido2, String telefono, SucursalDAO2 sucursal) {
         this.id = id;
         this.nif = nif;
         this.nombre = nombre;

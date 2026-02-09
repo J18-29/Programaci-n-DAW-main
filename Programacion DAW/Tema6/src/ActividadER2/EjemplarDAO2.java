@@ -2,12 +2,12 @@
 
 import java.util.Date;
 
-public class EjemplarDAO {
+public class EjemplarDAO2 {
     Date fecha;
     int numeroPaginas;
     int numeroEjemplares;
 
-    public EjemplarDAO(Date fecha, int numeroPaginas, int numeroEjemplares) {
+    public EjemplarDAO2(Date fecha, int numeroPaginas, int numeroEjemplares) {
         this.fecha = fecha;
         this.numeroPaginas = numeroPaginas;
         this.numeroEjemplares = numeroEjemplares;

@@ -1,9 +1,9 @@
 
 
-public class CapacitadoDAO extends EmpleadoDAO {
+public class CapacitadoDAO extends EmpleadoDAO2 {
 
-    public CapacitadoDAO(int id, String nif, String nombre, String apellido1,String apellido2, String telefono, SucursalDAO sucursal) {
-        super(id, nif, nombre, apellido1, apellido2, telefono, sucursal);
+    public CapacitadoDAO(int id, String nif, String nombre, String apellido1,String apellido2, String telefono, SucursalDAO2 sucursal) {
+        super(id, nif, nombre, telefono, telefono, telefono, sucursal);
     }
 }
 

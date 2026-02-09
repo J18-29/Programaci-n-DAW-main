@@ -10,7 +10,7 @@ public class EdicionDAO {
      String lugar;
 
     private CursoDAO curso;
-    private List<EmpleadoDAO> alumnos = new ArrayList<>();
+    private List<EmpleadoDAO2> alumnos = new ArrayList<>();
      CapacitadoDAO instructor;
 
     public EdicionDAO(int id, Date inicio, Date fin, String horario, String lugar, CursoDAO curso) {
@@ -23,7 +23,7 @@ public class EdicionDAO {
         curso.agregarEdicion(this);
     }
 
-    public void agregarAlumno(EmpleadoDAO e) {
+    public void agregarAlumno(EmpleadoDAO2 e) {
         alumnos.add(e);
     }
 

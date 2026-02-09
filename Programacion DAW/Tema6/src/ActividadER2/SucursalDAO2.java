@@ -2,17 +2,17 @@
 
 import java.util.*;
 
-public class SucursalDAO {
+public class SucursalDAO2 {
      int codigo;
      String direccion;
      String ciudad;
      String provincia;
      String telefono;
 
-    private List<RevistaDAO> revistas = new ArrayList<>();
-    private List<EmpleadoDAO> empleados = new ArrayList<>();
+    private List<RevistaDAO2> revistas = new ArrayList<>();
+    private List<EmpleadoDAO2> empleados = new ArrayList<>();
 
-    public SucursalDAO(int codigo, String direccion, String ciudad, String provincia, String telefono) {
+    public SucursalDAO2(int codigo, String direccion, String ciudad, String provincia, String telefono) {
         this.codigo = codigo;
         this.direccion = direccion;
         this.ciudad = ciudad;
@@ -20,11 +20,11 @@ public class SucursalDAO {
         this.telefono = telefono;
     }
 
-    public void publicarRevista(RevistaDAO r) {
+    public void publicarRevista(RevistaDAO2 r) {
         revistas.add(r);
     }
 
-    public void agregarEmpleado(EmpleadoDAO e) {
+    public void agregarEmpleado(EmpleadoDAO2 e) {
         empleados.add(e);
     }
 

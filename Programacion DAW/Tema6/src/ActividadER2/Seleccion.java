@@ -14,7 +14,7 @@ public class Seleccion {
         EdicionDAO ed1 = new EdicionDAO(101, new Date(),new Date(), "Lunes a Viernes","Aula 1",java );
 
         // Crear sucursal
-        SucursalDAO sucursal = new SucursalDAO(1,"Calle Mayor 1","Madrid","Madrid","910000000");
+        SucursalDAO2 sucursal = new SucursalDAO2(1,"Calle Mayor 1","Madrid","Madrid","910000000");
 
         // Crear empleados
         CapacitadoDAO profesor = new CapacitadoDAO(1,"12345678A","Ana","García","López","600123123",sucursal);

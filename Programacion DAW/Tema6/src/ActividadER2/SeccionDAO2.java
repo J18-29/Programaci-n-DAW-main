@@ -1,10 +1,10 @@
 
 
-public class SeccionDAO {
+public class SeccionDAO2 {
     private String titulo;
     private int extension;
 
-    public SeccionDAO(String titulo, int extension) {
+    public SeccionDAO2(String titulo, int extension) {
         this.titulo = titulo;
         this.extension = extension;
     }
