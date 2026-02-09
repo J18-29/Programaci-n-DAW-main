@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjemploMVC",
+            "request": "launch",
+            "mainClass": "src.EjemploMVC",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "Fabricas",
             "request": "launch",
             "mainClass": "Fabricas",
