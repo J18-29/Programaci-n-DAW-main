@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PruebaSalida",
+            "request": "launch",
+            "mainClass": "PruebaSalida",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "EjecutarProveedorPiezaMVC",
             "request": "launch",
             "mainClass": "EjecutarProveedorPiezaMVC",

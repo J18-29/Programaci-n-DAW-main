@@ -1,10 +1,10 @@
-package src.vista;
+package src.Vista;
 
 import java.util.List;
 import java.util.Scanner;
 
-import src.controlador.LibroController;
-import src.modelo.Libro;
+import src.Controlador.LibroController;
+import src.Modelo.Libro;
 
 public class LibroView {
 

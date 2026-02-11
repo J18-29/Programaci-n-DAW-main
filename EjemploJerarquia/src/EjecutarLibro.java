@@ -1,6 +1,6 @@
 package src;
 
-import src.vista.LibroView;
+import src.Vista.LibroView;
 
 public class EjecutarLibro {
    public static void main(String[] args) {

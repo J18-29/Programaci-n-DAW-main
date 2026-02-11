@@ -1,9 +1,10 @@
-package src.controlador;
+package src.Controlador;
 
 import java.util.List;
 
-import src.modelo.Ebook;
-import src.modelo.EbookDAO;
+import src.Modelo.Ebook;
+import src.Modelo.EbookDAO;
+
 
 public class EbookController {
 

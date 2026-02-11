@@ -1,10 +1,10 @@
-package src.controlador;
+package src.Controlador;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import src.modelo.Papel;
-import src.modelo.PapelDAO;
+import src.Modelo.Papel;
+import src.Modelo.PapelDAO;
 
 public class PapelController {
 

@@ -1,9 +1,9 @@
-package src.controlador;
+package src.Controlador;
 
 import java.util.List;
 
-import src.modelo.Libro;
-import src.modelo.LibroDAO;
+import src.Modelo.Libro;
+import src.Modelo.LibroDAO;
 
 public class LibroController {
 

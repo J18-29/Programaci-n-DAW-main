@@ -1,4 +1,4 @@
-package src.modelo;
+package src.Modelo;
 
 public class PersonaDAO {
     
