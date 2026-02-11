@@ -1,7 +1,12 @@
 package src;
 
+
+import src.Controlador.CategoriaController;
+
 public class EjecutarProveedorPiezaMVC {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        CategoriaController categoriaController = new CategoriaController();
+        categoriaController.listarCategorias();
+        
     }
 }

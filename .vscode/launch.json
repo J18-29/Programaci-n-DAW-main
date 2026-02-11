@@ -8,6 +8,27 @@
             "type": "java",
             "name": "EjecutarProveedorPiezaMVC",
             "request": "launch",
+            "mainClass": "EjecutarProveedorPiezaMVC",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "EjecutarLibro",
+            "request": "launch",
+            "mainClass": "src.EjecutarLibro",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "src.App",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "EjecutarProveedorPiezaMVC",
+            "request": "launch",
             "mainClass": "src.EjecutarProveedorPiezaMVC",
             "projectName": "Programacion DAW_1b166973"
         },
