@@ -14,14 +14,15 @@ public class ProfesorDAO {
 
     // INSERTAR
     public void insertar(Profesor profesor) throws SQLException {
-        String sql = "INSERT INTO profesor (nombre, apellido1, apellido2, especialidad, telefono) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO profesor (id, nombre, apellido1, apellido2, especialidad, telefono) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, profesor.getNombre());
-            ps.setString(2, profesor.getApellido1());
-            ps.setString(3, profesor.getApellido2());
-            ps.setString(4, profesor.getEspecialidad());
-            ps.setString(5, profesor.getTelefono());
+            ps.setInt(1, profesor.getId());
+            ps.setString(2, profesor.getNombre());
+            ps.setString(3, profesor.getApellido1());
+            ps.setString(4, profesor.getApellido2());
+            ps.setString(5, profesor.getEspecialidad());
+            ps.setString(6, profesor.getTelefono());
 
             ps.executeUpdate();
 

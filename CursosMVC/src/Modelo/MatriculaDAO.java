@@ -17,7 +17,7 @@ public class MatriculaDAO {
         String sql = "INSERT INTO matricula (alumno_id, asignatura_codigo, curso_id) VALUES (?, ?, ?)";
 
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, matricula.getAlumno().getId());
+            ps.setInt(1, matricula.getAlumno().getNumeroMatricula());
             ps.setInt(2, matricula.getAsignatura().getCodigo());
             ps.setInt(3, matricula.getCurso().getId());
 
@@ -30,7 +30,7 @@ public class MatriculaDAO {
         String sql = "DELETE FROM matricula WHERE alumno_id=? AND asignatura_codigo=? AND curso_id=?";
 
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, matricula.getAlumno().getId());
+            ps.setInt(1, matricula.getAlumno().getNumeroMatricula());
             ps.setInt(2, matricula.getAsignatura().getCodigo());
             ps.setInt(3, matricula.getCurso().getId());
 
@@ -54,7 +54,7 @@ public class MatriculaDAO {
         List<Matricula> lista = new ArrayList<>();
 
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, alumno.getId());
+            ps.setInt(1, alumno.getNumeroMatricula());
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -109,11 +109,12 @@ public class MatriculaDAO {
 
             while (rs.next()) {
                 Alumno alumno = new Alumno(
-                        rs.getInt("alumno_id"),
-                        rs.getString("nif"),
+                        rs.getInt("numero_matricula"),
                         rs.getString("alumno_nombre"),
                         rs.getString("alumno_apellido1"),
-                        rs.getString("alumno_apellido2")
+                        rs.getString("alumno_apellido2"),
+                        rs.getString("alumno_telefono"),
+                        rs.getString("alumno_fecha_nacimiento")
                 );
 
                 Profesor profesor = new Profesor(

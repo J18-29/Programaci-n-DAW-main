@@ -12,22 +12,23 @@ public class CursoEscolarDAO {
         this.conexion = conexion;
     }
 
-    // INSERTAR
-    public void insertar(CursoEscolar curso) throws SQLException {
-        String sql = "INSERT INTO curso_escolar (anioInicio, anioFin) VALUES (?, ?)";
+public void insertar(CursoEscolar curso) throws SQLException {
+    // IMPORTANTE: Usamos 'anio_inicio' y 'anio_fin' (sin la ñ)
+    String sql = "INSERT INTO curso_escolar (anio_inicio, anio_fin) VALUES (?, ?)";
 
-        try (PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setInt(1, curso.getAnioInicio());
-            ps.setInt(2, curso.getAnioFin());
+    try (PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        ps.setInt(1, curso.getAnio_inicio());
+        ps.setInt(2, curso.getAnio_fin());
 
-            ps.executeUpdate();
+        ps.executeUpdate();
 
-            ResultSet rs = ps.getGeneratedKeys();
+        try (ResultSet rs = ps.getGeneratedKeys()) {
             if (rs.next()) {
                 curso.setId(rs.getInt(1));
             }
         }
     }
+}
 
     // BUSCAR POR ID
     public CursoEscolar buscarPorId(int id) throws SQLException {
@@ -75,8 +76,8 @@ public class CursoEscolarDAO {
         String sql = "UPDATE curso_escolar SET anioInicio=?, anioFin=? WHERE id=?";
 
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, curso.getAnioInicio());
-            ps.setInt(2, curso.getAnioFin());
+            ps.setInt(1, curso.getAnio_inicio());
+            ps.setInt(2, curso.getAnio_fin());
             ps.setInt(3, curso.getId());
 
             ps.executeUpdate();

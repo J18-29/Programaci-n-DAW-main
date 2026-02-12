@@ -1,7 +1,7 @@
 package src.Modelo;
 
 public class Profesor {
-    int id;
+     int id;
      String nombre;
      String apellido1;
      String apellido2;

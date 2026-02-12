@@ -2,13 +2,13 @@ package src.Modelo;
 
 public class CursoEscolar {
      int id;
-     int anioInicio;
-     int anioFin;
+     int anio_inicio;
+     int anio_fin;
 
-    public CursoEscolar(int id, int anioInicio, int anioFin) {
+    public CursoEscolar(int id, int anio_inicio, int anio_fin) {
         this.id = id;
-        this.anioInicio = anioInicio;
-        this.anioFin = anioFin;
+        this.anio_inicio = anio_inicio;
+        this.anio_fin = anio_fin;
     }
 
     public int getId() {
@@ -19,20 +19,21 @@ public class CursoEscolar {
         this.id = id;
     }
 
-    public int getAnioInicio() {
-        return anioInicio;
+    public int getAnio_inicio() {
+        return anio_inicio;
     }
 
-    public void setAnioInicio(int anioInicio) {
-        this.anioInicio = anioInicio;
+    public void setAnio_inicio(int anio_inicio) {
+        this.anio_inicio = anio_inicio;
     }
 
-    public int getAnioFin() {
-        return anioFin;
+    public int getAnio_fin() {
+        return anio_fin;
     }
 
-    public void setAnioFin(int anioFin) {
-        this.anioFin = anioFin;
+    public void setAnio_fin(int anio_fin) {
+        this.anio_fin = anio_fin;
     }
+
     
 }

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjecutarCurso",
+            "request": "launch",
+            "mainClass": "src.EjecutarCurso",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "PruebaSalida",
             "request": "launch",
             "mainClass": "PruebaSalida",

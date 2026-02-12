@@ -1,15 +1,15 @@
 package src.Modelo;
 
 public class Asignatura {
-    int codigo;
-     String nombre;
-     int numeroHoras;
-     Profesor profesor;
+    private int codigo;
+    private String nombre;
+    private int numero_horas;
+    private Profesor profesor;
 
-    public Asignatura(int codigo, String nombre, int numeroHoras, Profesor profesor) {
+    public Asignatura(int codigo, String nombre, int numero_horas, Profesor profesor) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.numeroHoras = numeroHoras;
+        this.numero_horas = numero_horas;
         this.profesor = profesor;
     }
 
@@ -29,12 +29,12 @@ public class Asignatura {
         this.nombre = nombre;
     }
 
-    public int getNumeroHoras() {
-        return numeroHoras;
+    public int getNumero_horas() {
+        return numero_horas;
     }
 
-    public void setNumeroHoras(int numeroHoras) {
-        this.numeroHoras = numeroHoras;
+    public void setNumero_horas(int numero_horas) {
+        this.numero_horas = numero_horas;
     }
 
     public Profesor getProfesor() {
@@ -44,5 +44,6 @@ public class Asignatura {
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
-    
+
+  
 }

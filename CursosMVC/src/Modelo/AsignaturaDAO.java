@@ -1,126 +1,101 @@
 package src.Modelo;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AsignaturaDAO {
-
     private Connection conexion;
 
     public AsignaturaDAO(Connection conexion) {
         this.conexion = conexion;
     }
+public void insertar(Asignatura asignatura) throws SQLException {
+    // 1. La sentencia SQL solo lleva nombre, numero_horas e id_profesor
+    String sql = "INSERT INTO asignatura (nombre, numero_horas, id_profesor) VALUES (?, ?, ?)";
 
-    // INSERTAR
-    public void insertar(Asignatura asignatura) throws SQLException {
-        String sql = "INSERT INTO asignatura (nombre, numeroHoras, profesor_id) VALUES (?, ?, ?)";
+    try (PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        // 2. Pasamos los 3 parámetros
+        ps.setString(1, asignatura.getNombre());
+        ps.setInt(2, asignatura.getNumero_horas());
+        ps.setInt(3, asignatura.getProfesor().getId()); // Asegúrate que este profesor ya exista en la BD
 
-        try (PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setString(1, asignatura.getNombre());
-            ps.setInt(2, asignatura.getNumeroHoras());
-            ps.setInt(3, asignatura.getProfesor().getId()); // Usamos el id del profesor
+        // 3. Ejecutamos
+        ps.executeUpdate();
 
-            ps.executeUpdate();
-
-            ResultSet rs = ps.getGeneratedKeys();
+        // 4. ESTO ES CLAVE: Le pedimos a MySQL el código que acaba de inventar
+        try (ResultSet rs = ps.getGeneratedKeys()) {
             if (rs.next()) {
+                // Guardamos ese código en nuestro objeto Java
                 asignatura.setCodigo(rs.getInt(1));
             }
         }
     }
+}
 
-    // BUSCAR POR CODIGO
     public Asignatura buscarPorCodigo(int codigo) throws SQLException {
-        String sql = "SELECT a.codigo, a.nombre, a.numeroHoras, " +
-                     "p.id AS profesor_id, p.nombre AS profesor_nombre, " +
-                     "p.apellido1 AS profesor_apellido1, p.apellido2 AS profesor_apellido2, " +
-                     "p.especialidad AS profesor_especialidad, p.telefono AS profesor_telefono " +
+        String sql = "SELECT a.codigo, a.nombre, a.numero_horas, a.id_profesor, " +
+                     "p.nombre AS prof_nom, p.apellido1, p.apellido2, p.especialidad, p.telefono " +
                      "FROM asignatura a " +
-                     "JOIN profesor p ON a.profesor_id = p.id " +
+                     "JOIN profesor p ON a.id_profesor = p.id_profesor " +
                      "WHERE a.codigo = ?";
 
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.setInt(1, codigo);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                Profesor profesor = new Profesor(
-                        rs.getInt("profesor_id"),
-                        rs.getString("profesor_nombre"),
-                        rs.getString("profesor_apellido1"),
-                        rs.getString("profesor_apellido2"),
-                        rs.getString("profesor_especialidad"),
-                        rs.getString("profesor_telefono")
-                );
-
-                return new Asignatura(
-                        rs.getInt("codigo"),
-                        rs.getString("nombre"),
-                        rs.getInt("numeroHoras"),
-                        profesor
-                );
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Profesor prof = new Profesor(
+                        rs.getInt("id_profesor"),
+                        rs.getString("prof_nom"),
+                        rs.getString("apellido1"),
+                        rs.getString("apellido2"),
+                        rs.getString("especialidad"),
+                        rs.getString("telefono")
+                    );
+                    return new Asignatura(rs.getInt("codigo"), rs.getString("nombre"), rs.getInt("numero_horas"), prof);
+                }
             }
         }
-
         return null;
     }
 
-    // LISTAR TODOS
     public List<Asignatura> listarTodos() throws SQLException {
-        String sql = "SELECT a.codigo, a.nombre, a.numeroHoras, " +
-                     "p.id AS profesor_id, p.nombre AS profesor_nombre, " +
-                     "p.apellido1 AS profesor_apellido1, p.apellido2 AS profesor_apellido2, " +
-                     "p.especialidad AS profesor_especialidad, p.telefono AS profesor_telefono " +
-                     "FROM asignatura a " +
-                     "JOIN profesor p ON a.profesor_id = p.id";
-
         List<Asignatura> lista = new ArrayList<>();
+        String sql = "SELECT a.codigo, a.nombre, a.numero_horas, a.id_profesor, " +
+                     "p.nombre AS prof_nom, p.apellido1, p.apellido2, p.especialidad, p.telefono " +
+                     "FROM asignatura a " +
+                     "JOIN profesor p ON a.id_profesor = p.id_profesor";
 
-        try (PreparedStatement ps = conexion.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-
+        try (Statement st = conexion.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
-                Profesor profesor = new Profesor(
-                        rs.getInt("profesor_id"),
-                        rs.getString("profesor_nombre"),
-                        rs.getString("profesor_apellido1"),
-                        rs.getString("profesor_apellido2"),
-                        rs.getString("profesor_especialidad"),
-                        rs.getString("profesor_telefono")
+                Profesor prof = new Profesor(
+                    rs.getInt("id_profesor"),
+                    rs.getString("prof_nom"),
+                    rs.getString("apellido1"),
+                    rs.getString("apellido2"),
+                    rs.getString("especialidad"),
+                    rs.getString("telefono")
                 );
-
-                Asignatura asignatura = new Asignatura(
-                        rs.getInt("codigo"),
-                        rs.getString("nombre"),
-                        rs.getInt("numeroHoras"),
-                        profesor
-                );
-
-                lista.add(asignatura);
+                lista.add(new Asignatura(rs.getInt("codigo"), rs.getString("nombre"), rs.getInt("numero_horas"), prof));
             }
         }
-
         return lista;
     }
 
-    // ACTUALIZAR
     public void actualizar(Asignatura asignatura) throws SQLException {
-        String sql = "UPDATE asignatura SET nombre=?, numeroHoras=?, profesor_id=? WHERE codigo=?";
-
+        String sql = "UPDATE asignatura SET nombre=?, numero_horas=?, id_profesor=? WHERE codigo=?";
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.setString(1, asignatura.getNombre());
-            ps.setInt(2, asignatura.getNumeroHoras());
+            ps.setInt(2, asignatura.getNumero_horas());
             ps.setInt(3, asignatura.getProfesor().getId());
             ps.setInt(4, asignatura.getCodigo());
-
             ps.executeUpdate();
         }
     }
 
-    // ELIMINAR
     public void eliminar(int codigo) throws SQLException {
         String sql = "DELETE FROM asignatura WHERE codigo=?";
-
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.setInt(1, codigo);
             ps.executeUpdate();
