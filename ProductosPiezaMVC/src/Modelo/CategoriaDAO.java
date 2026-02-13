@@ -12,7 +12,7 @@ public class CategoriaDAO {
     // CREATE
     public static void insertar(int codigo, String nombre) {
         String sql = "INSERT INTO categoria VALUES (?, ?)";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
@@ -27,7 +27,7 @@ public class CategoriaDAO {
     // READ (SELECT ALL)
     public static void listar() {
         String sql = "SELECT * FROM categoria";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
@@ -47,7 +47,7 @@ public class CategoriaDAO {
         String sql = "SELECT * FROM categoria WHERE codigo=?";
         Categoria nuevo = null;
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -69,7 +69,7 @@ public class CategoriaDAO {
     // UPDATE
     public static void actualizar(int codigo, String nuevoNombre) {
         String sql = "UPDATE categoria SET nombre=? WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, nuevoNombre);
@@ -83,7 +83,7 @@ public class CategoriaDAO {
 
     public static void actualizar(Categoria objeto) {
         String sql = "UPDATE categoria SET nombre=? WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, objeto.getNombre());
@@ -99,7 +99,7 @@ public class CategoriaDAO {
     // DELETE
     public static void borrar(int codigo) {
         String sql = "DELETE FROM categoria WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);

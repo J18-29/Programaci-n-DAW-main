@@ -11,7 +11,7 @@ public class PiezaDAO {
     // CREATE
     public void insertar(int codigo, String nombre, String color, double precio, int codigoCategoria) {
         String sql = "INSERT INTO pieza VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
@@ -29,7 +29,7 @@ public class PiezaDAO {
     // READ (SELECT)
     public void listar() {
         String sql = "SELECT * FROM pieza";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -50,7 +50,7 @@ public class PiezaDAO {
     // UPDATE
     public void actualizar(int codigo, String nuevoNombre, String nuevoColor, double nuevoPrecio, int nuevoCodigoCategoria) {
         String sql = "UPDATE pieza SET nombre=?, color=?, precio=?, codigo_categoria=? WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, nuevoNombre);
@@ -68,7 +68,7 @@ public class PiezaDAO {
     // DELETE
     public void borrar(int codigo) {
         String sql = "DELETE FROM pieza WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);

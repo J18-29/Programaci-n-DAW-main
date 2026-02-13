@@ -9,7 +9,7 @@ public class EbookDAO {
     public void insertar(Ebook ebook) {
         String sql = "INSERT INTO ebook (tamaño, precio) VALUES (?, ?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, ebook.getTamaño());
@@ -27,7 +27,7 @@ public class EbookDAO {
         List<Ebook> lista = new ArrayList<>();
         String sql = "SELECT * FROM ebook";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
@@ -50,7 +50,7 @@ public class EbookDAO {
     public void eliminar(int id) {
         String sql = "DELETE FROM ebook WHERE id = ?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, id);

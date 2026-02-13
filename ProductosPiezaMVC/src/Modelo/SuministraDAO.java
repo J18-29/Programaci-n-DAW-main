@@ -12,7 +12,7 @@ public class SuministraDAO {
     // CREATE
     public void insertar(int codigoProveedor, int codigoPieza, Timestamp fechaHora, int cantidad) {
         String sql = "INSERT INTO proveedor_suministra_pieza VALUES (?, ?, ?, ?)";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigoProveedor);
@@ -29,7 +29,7 @@ public class SuministraDAO {
     // READ (SELECT)
     public void listar() {
         String sql = "SELECT * FROM proveedor_suministra_pieza";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -49,7 +49,7 @@ public class SuministraDAO {
     // UPDATE
     public void actualizar(int codigoProveedor, int codigoPieza, Timestamp nuevaFechaHora, int nuevaCantidad) {
         String sql = "UPDATE proveedor_suministra_pieza SET fecha_hora=?, cantidad=? WHERE codigo_proveedor=? AND codigo_pieza=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setTimestamp(1, nuevaFechaHora);
@@ -66,7 +66,7 @@ public class SuministraDAO {
     // DELETE
     public void borrar(int codigoProveedor, int codigoPieza) {
         String sql = "DELETE FROM proveedor_suministra_pieza WHERE codigo_proveedor=? AND codigo_pieza=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigoProveedor);

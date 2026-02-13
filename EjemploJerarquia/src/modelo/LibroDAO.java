@@ -9,7 +9,7 @@ public class LibroDAO {
     public void insertar(Libro libro) {
         String sql = "INSERT INTO libro (isbn, titulo, año, descripcion) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, libro.getIsbn());
@@ -29,7 +29,7 @@ public class LibroDAO {
         List<Libro> lista = new ArrayList<>();
         String sql = "SELECT * FROM libro";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
@@ -54,7 +54,7 @@ public class LibroDAO {
     public void actualizar(Libro libro) {
         String sql = "UPDATE libro SET isbn = ?, titulo = ?, año = ?, descripcion = ? WHERE id = ?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, libro.getIsbn());
@@ -74,7 +74,7 @@ public class LibroDAO {
     public void eliminar(int id) {
         String sql = "DELETE FROM libro WHERE id = ?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, id);

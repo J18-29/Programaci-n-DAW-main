@@ -10,7 +10,7 @@ public class PapelDAO {
     public void insertar(Papel papel) {
         String sql = "INSERT INTO papel (fecha_impresion, precio, lugar_impresion) VALUES (?, ?, ?)";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setDate(1, Date.valueOf(papel.getFechaImpresion()));
@@ -29,7 +29,7 @@ public class PapelDAO {
         List<Papel> lista = new ArrayList<>();
         String sql = "SELECT * FROM papel";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
@@ -53,7 +53,7 @@ public class PapelDAO {
     public void eliminar(int id) {
         String sql = "DELETE FROM papel WHERE id = ?";
 
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, id);

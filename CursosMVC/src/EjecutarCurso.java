@@ -4,7 +4,7 @@ package src;
 
 import java.sql.Connection;
 
-import src.Modelo.Conexion;
+import src.Modelo.Conexion2;
 import src.Vista.CursoView;
 import src.Controlador.CursoController;
 
@@ -17,7 +17,7 @@ public class EjecutarCurso {
         try {
 
             
-            Connection conexion = Conexion.getConnection();
+            Connection conexion = Conexion2.getConnection();
           
             CursoController controlador = new CursoController(conexion);
             controlador.iniciar();

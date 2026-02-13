@@ -5,145 +5,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatriculaDAO {
-
     private Connection conexion;
 
     public MatriculaDAO(Connection conexion) {
         this.conexion = conexion;
     }
 
-    // INSERTAR
     public void insertar(Matricula matricula) throws SQLException {
-        String sql = "INSERT INTO matricula (alumno_id, asignatura_codigo, curso_id) VALUES (?, ?, ?)";
+        // Ajustado a image_0c9865.png
+        String sql = "INSERT INTO se_matricula (numero_matricula, codigo_asignatura, id_curso) VALUES (?, ?, ?)";
 
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.setInt(1, matricula.getAlumno().getNumeroMatricula());
             ps.setInt(2, matricula.getAsignatura().getCodigo());
             ps.setInt(3, matricula.getCurso().getId());
-
             ps.executeUpdate();
         }
     }
 
-    // ELIMINAR
-    public void eliminar(Matricula matricula) throws SQLException {
-        String sql = "DELETE FROM matricula WHERE alumno_id=? AND asignatura_codigo=? AND curso_id=?";
-
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, matricula.getAlumno().getNumeroMatricula());
-            ps.setInt(2, matricula.getAsignatura().getCodigo());
-            ps.setInt(3, matricula.getCurso().getId());
-
-            ps.executeUpdate();
-        }
-    }
-
-    // LISTAR MATRÍCULAS DE UN ALUMNO
-    public List<Matricula> listarPorAlumno(Alumno alumno) throws SQLException {
-        String sql = "SELECT m.alumno_id, m.asignatura_codigo, m.curso_id, " +
-                     "a.nombre AS asignatura_nombre, a.numeroHoras AS asignatura_horas, " +
-                     "p.id AS profesor_id, p.nombre AS profesor_nombre, p.apellido1 AS profesor_apellido1, " +
-                     "p.apellido2 AS profesor_apellido2, p.especialidad AS profesor_especialidad, p.telefono AS profesor_telefono, " +
-                     "c.anioInicio, c.anioFin " +
-                     "FROM matricula m " +
-                     "JOIN asignatura a ON m.asignatura_codigo = a.codigo " +
-                     "JOIN profesor p ON a.profesor_id = p.id " +
-                     "JOIN curso_escolar c ON m.curso_id = c.id " +
-                     "WHERE m.alumno_id = ?";
-
-        List<Matricula> lista = new ArrayList<>();
-
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, alumno.getNumeroMatricula());
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                Profesor profesor = new Profesor(
-                        rs.getInt("profesor_id"),
-                        rs.getString("profesor_nombre"),
-                        rs.getString("profesor_apellido1"),
-                        rs.getString("profesor_apellido2"),
-                        rs.getString("profesor_especialidad"),
-                        rs.getString("profesor_telefono")
-                );
-
-                Asignatura asignatura = new Asignatura(
-                        rs.getInt("asignatura_codigo"),
-                        rs.getString("asignatura_nombre"),
-                        rs.getInt("asignatura_horas"),
-                        profesor
-                );
-
-                CursoEscolar curso = new CursoEscolar(
-                        rs.getInt("curso_id"),
-                        rs.getInt("anioInicio"),
-                        rs.getInt("anioFin")
-                );
-
-                Matricula matricula = new Matricula(alumno, asignatura, curso);
-                lista.add(matricula);
-            }
-        }
-
-        return lista;
-    }
-
-    // LISTAR TODOS
     public List<Matricula> listarTodos() throws SQLException {
-        String sql = "SELECT m.alumno_id, m.asignatura_codigo, m.curso_id, " +
-                     "al.nif, al.nombre AS alumno_nombre, al.apellido1 AS alumno_apellido1, al.apellido2 AS alumno_apellido2, " +
-                     "a.nombre AS asignatura_nombre, a.numeroHoras AS asignatura_horas, " +
-                     "p.id AS profesor_id, p.nombre AS profesor_nombre, p.apellido1 AS profesor_apellido1, " +
-                     "p.apellido2 AS profesor_apellido2, p.especialidad AS profesor_especialidad, p.telefono AS profesor_telefono, " +
-                     "c.anioInicio, c.anioFin " +
-                     "FROM matricula m " +
-                     "JOIN alumno al ON m.alumno_id = al.id " +
-                     "JOIN asignatura a ON m.asignatura_codigo = a.codigo " +
-                     "JOIN profesor p ON a.profesor_id = p.id " +
-                     "JOIN curso_escolar c ON m.curso_id = c.id";
+    // Hemos quitado CUALQUIER mención a 'id_profesor' de la tabla p
+    String sql = "SELECT m.numero_matricula, m.codigo_asignatura, m.id_curso, " +
+                 "al.nombre AS alu_nom, " +
+                 "asig.nombre AS asig_nom, asig.numero_hora, " + 
+                 "p.id AS prof_id, p.nombre AS prof_nom, " +
+                 "c.anio_inicio, c.anio_fin " +
+                 "FROM se_matricula m " +
+                 "JOIN alumno al ON m.numero_matricula = al.id " +
+                 "JOIN asignatura asig ON m.codigo_asignatura = asig.codigo " +
+                 "JOIN profesor p ON asig.id_profesor = p.id " + // <-- ESTA LÍNEA ES LA CLAVE
+                 "JOIN curso_escolar c ON m.id_curso = c.id";
 
-        List<Matricula> lista = new ArrayList<>();
-
-        try (PreparedStatement ps = conexion.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-
-            while (rs.next()) {
-                Alumno alumno = new Alumno(
-                        rs.getInt("numero_matricula"),
-                        rs.getString("alumno_nombre"),
-                        rs.getString("alumno_apellido1"),
-                        rs.getString("alumno_apellido2"),
-                        rs.getString("alumno_telefono"),
-                        rs.getString("alumno_fecha_nacimiento")
-                );
-
-                Profesor profesor = new Profesor(
-                        rs.getInt("profesor_id"),
-                        rs.getString("profesor_nombre"),
-                        rs.getString("profesor_apellido1"),
-                        rs.getString("profesor_apellido2"),
-                        rs.getString("profesor_especialidad"),
-                        rs.getString("profesor_telefono")
-                );
-
-                Asignatura asignatura = new Asignatura(
-                        rs.getInt("asignatura_codigo"),
-                        rs.getString("asignatura_nombre"),
-                        rs.getInt("asignatura_horas"),
-                        profesor
-                );
-
-                CursoEscolar curso = new CursoEscolar(
-                        rs.getInt("curso_id"),
-                        rs.getInt("anioInicio"),
-                        rs.getInt("anioFin")
-                );
-
-                Matricula matricula = new Matricula(alumno, asignatura, curso);
-                lista.add(matricula);
-            }
+    List<Matricula> lista = new ArrayList<>();
+    try (Statement st = conexion.createStatement();
+         ResultSet rs = st.executeQuery(sql)) {
+        while (rs.next()) {
+            Alumno alu = new Alumno(rs.getInt("numero_matricula"), rs.getString("alu_nom"), "", "", "", "");
+            Profesor prof = new Profesor(rs.getInt("prof_id"), rs.getString("prof_nom"), "", "", "", "");
+            Asignatura asig = new Asignatura(rs.getInt("codigo_asignatura"), rs.getString("asig_nom"), rs.getInt("numero_hora"), prof);
+            CursoEscolar curso = new CursoEscolar(rs.getInt("id_curso"), rs.getInt("anio_inicio"), rs.getInt("anio_fin"));
+            lista.add(new Matricula(alu, asig, curso));
         }
-
-        return lista;
     }
+    return lista;
+}
+
 }

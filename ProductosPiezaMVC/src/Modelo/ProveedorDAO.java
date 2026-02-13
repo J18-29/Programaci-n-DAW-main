@@ -11,7 +11,7 @@ public class ProveedorDAO {
     // CREATE
     public void insertar(int codigo, String direccion, String ciudad, String provincia) {
         String sql = "INSERT INTO proveedor VALUES (?, ?, ?, ?)";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
@@ -28,7 +28,7 @@ public class ProveedorDAO {
     // READ (SELECT)
     public void listar() {
         String sql = "SELECT * FROM proveedor";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -48,7 +48,7 @@ public class ProveedorDAO {
     // UPDATE
     public void actualizar(int codigo, String nuevaDireccion, String nuevaCiudad, String nuevaProvincia) {
         String sql = "UPDATE proveedor SET direccion=?, ciudad=?, provincia=? WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, nuevaDireccion);
@@ -65,7 +65,7 @@ public class ProveedorDAO {
     // DELETE
     public void borrar(int codigo) {
         String sql = "DELETE FROM proveedor WHERE codigo=?";
-        try (Connection conn = Conexion.getConnection();
+        try (Connection conn = Conexion2.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, codigo);
