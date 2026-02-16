@@ -1,53 +1,38 @@
 package src.Modelo;
 
-import java.time.LocalDate; 
 
-public class Papel {
-    private int id;
-    private LocalDate fechaImpresion;
+
+import java.sql.Date;
+
+public class Papel extends Libro{
+    private Date fecha_impresion;
+    private String lugar_impresion;
     private double precio;
-    private String lugarImpresion;
-
-    public Papel() {}
-
-    public Papel(int id, LocalDate fechaImpresion, double precio, String lugarImpresion) {
-        this.id = id;
-        this.fechaImpresion = fechaImpresion;
+    public Papel(int id, String isbn, Date anyo_publicacion, String titulo, String descripcion,int tipo, Date fecha_impresion,
+            String lugar_impresion, double precio) {
+        super(id, isbn, anyo_publicacion, titulo, descripcion,tipo);
+        this.fecha_impresion = fecha_impresion;
+        this.lugar_impresion = lugar_impresion;
         this.precio = precio;
-        this.lugarImpresion = lugarImpresion;
     }
-
-    public int getId() {
-        return id;
+    public Date getFecha_impresion() {
+        return fecha_impresion;
     }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setFecha_impresion(Date fecha_impresion) {
+        this.fecha_impresion = fecha_impresion;
     }
-
-    public LocalDate getFechaImpresion() {
-        return fechaImpresion;
+    public String getLugar_impresion() {
+        return lugar_impresion;
     }
-
-    public void setFechaImpresion(LocalDate fechaImpresion) {
-        this.fechaImpresion = fechaImpresion;
+    public void setLugar_impresion(String lugar_impresion) {
+        this.lugar_impresion = lugar_impresion;
     }
-
     public double getPrecio() {
         return precio;
     }
-
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public String getLugarImpresion() {
-        return lugarImpresion;
-    }
-
-    public void setLugarImpresion(String lugarImpresion) {
-        this.lugarImpresion = lugarImpresion;
-    }
-
-   
+    
 }

@@ -1,5 +1,5 @@
 
-public class Main {
+public class Aparcamientos {
     public static void main(String[] args) {
         
         Parkeable coche1 = new Coche("1234ABC");

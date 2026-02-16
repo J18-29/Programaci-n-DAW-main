@@ -52,7 +52,7 @@ public class CursoController {
         String apellido1 = view.pedirTexto("Apellido1");
         String apellido2 = view.pedirTexto("Apellido2");
         String telefono = view.pedirTexto("Teléfono");
-        String fecha_nacimiento = view.pedirTexto("Fecha de nacimiento (AAAA-MM-DD)");
+        String fecha_nacimiento = view.pedirTexto("Fecha de nacimiento (YYYY-MM-DD)");
 
         Alumno alumno = new Alumno(numeroMatricula, nombre, apellido1, apellido2, telefono, fecha_nacimiento);
         

@@ -1,28 +1,46 @@
 package src.Controlador;
 
-import java.util.List;
-
-import src.Modelo.Libro;
-import src.Modelo.LibroDAO;
+import src.Modelo.EbookDAO;
+import src.Modelo.PapelDAO;
+import src.Vista.LibroView;
 
 public class LibroController {
 
-    private LibroDAO libroDAO;
+    private EbookDAO ebookdao;
+    private PapelDAO papeldao;
+    private LibroView view;
 
     public LibroController() {
-        this.libroDAO = new LibroDAO();
+        papeldao = new PapelDAO();
+        ebookdao = new EbookDAO();
+        view = new LibroView();
     }
-
-    public void crearLibro(String isbn, String titulo, int año, String descripcion) {
-        Libro libro = new Libro(0, isbn, titulo, año, descripcion);
-        libroDAO.insertar(libro);
-    }
-
-    public List<Libro> obtenerLibros() {
-        return libroDAO.listar();
-    }
-
-    public void eliminarLibro(int id) {
-        libroDAO.eliminar(id);
+    public void iniciar() {
+        int opcion;
+        try{
+            do {
+                opcion = view.mostrarMenu();
+                switch (opcion) {
+                    case 1: view.mostrarLibros(papeldao.listar());
+                        view.mostrarMensaje("Listar el contenido de Papel..."); break;
+                    case 2: view.mostrarLibros(ebookdao.listar());
+                        view.mostrarMensaje("Listar el contenido de Ebook..."); break;
+                    case 3: papeldao.insertar(view.pedirNuevoLibroPapel());
+                        view.mostrarMensaje("Nuevo libro papel insertado"); break; 
+                    case 4: ebookdao.insertar(view.pedirNuevoLibroEbook());
+                        view.mostrarMensaje("Nuevo libro EBOOK insertado"); break; 
+                    case 5: papeldao.eliminar(view.pedirIdEliminar());
+                        view.mostrarMensaje("Libro Papel eliminado"); break;
+                    case 6: ebookdao.eliminar(view.pedirIdEliminar());
+                        view.mostrarMensaje("Libro Ebook eliminado"); break;
+                    case 7: view.mostrarMensaje("Información del libro Papel por id "); 
+                        view.mostrarLibro(papeldao.listarById(view.pedirIdLibro())); break;
+                    case 0: view.mostrarMensaje("Saliendo..."); break;
+                    default: view.mostrarMensaje("Opción incorrecta"); break;
+                }
+            } while (opcion != 0);
+        }catch(Exception e){
+            System.err.println(e.getStackTrace());
+        }
     }
 }

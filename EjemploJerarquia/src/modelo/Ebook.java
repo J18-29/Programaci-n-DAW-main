@@ -1,41 +1,32 @@
 package src.Modelo;
 
-public class Ebook {
-    private int id;
-    private String tamaño; 
+
+import java.sql.Date;
+
+public class Ebook extends Libro {
     private double precio;
-
-    public Ebook() {}
-
-    public Ebook(int id, String tamaño, double precio) {
-        this.id = id;
-        this.tamaño = tamaño;
+    private String tamanyo;
+    public Ebook(int id, String isbn, Date anyo_publicacion, String titulo, String descripcion,int tipo,
+        String tamanyo,double precio) {
+        super(id, isbn, anyo_publicacion, titulo, descripcion,tipo);
         this.precio = precio;
+        this.tamanyo = tamanyo;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTamaño() {
-        return tamaño;
-    }
-
-    public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
-    }
-
     public double getPrecio() {
         return precio;
     }
-
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+    public String getTamanyo() {
+        return tamanyo;
+    }
+    public void setTamanyo(String tamanyo) {
+        this.tamanyo = tamanyo;
+    }
 
-   
+    
+
+    
+    
 }
