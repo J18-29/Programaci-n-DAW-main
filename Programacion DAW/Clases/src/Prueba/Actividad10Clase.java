@@ -1,5 +1,3 @@
-package Prueba;
-
 import BuscaLibro.Autor;
 import BuscaLibro.Biblioteca;
 import BuscaLibro.Libro;

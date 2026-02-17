@@ -1,7 +1,6 @@
 package Prueba;
 
-import Clases.Cuenta;
-import Clases.Persona;
+
 
 public class Actividad2Clase {
     public static void main(String[] args) {
