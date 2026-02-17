@@ -5,8 +5,8 @@ public class Matricula {
     private Asignatura asignatura;
     private CursoEscolar curso;
 
-    public Matricula(Alumno alumno, Asignatura asignatura, CursoEscolar curso) {
-        this.alumno = alumno;
+    public Matricula(Alumno alumno2, Asignatura asignatura, CursoEscolar curso) {
+        this.alumno = alumno2;
         this.asignatura = asignatura;
         this.curso = curso;
     }
@@ -34,5 +34,7 @@ public class Matricula {
     public void setCurso(CursoEscolar curso) {
         this.curso = curso;
     }
+
+    
     
 }
