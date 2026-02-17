@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Actividad4Clase",
+            "request": "launch",
+            "mainClass": "Actividad4Clase",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
+            "name": "Arrancar",
+            "request": "launch",
+            "mainClass": "Abstracta.Arrancar",
+            "projectName": "Programacion DAW_1b166973"
+        },
+        {
+            "type": "java",
             "name": "EjecutarCurso",
             "request": "launch",
             "mainClass": "src.EjecutarCurso",

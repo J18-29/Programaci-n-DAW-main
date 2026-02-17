@@ -3,6 +3,8 @@
         "c:\\Users\\usuario\\Downloads\\mysql-connector-j-9.5.0.jar"
     ],
     "java.project.sourcePaths": [
+        "TareaMVC",
+        "Prueba/src",
         "Programacion DAW/Tema6/src/ActividadER3",
         "Programacion DAW/Tema6/src/ActividadER2",
         "Programacion DAW/Tema6/src/ActividadER",
@@ -13,8 +15,7 @@
         "ProductosPiezaMVC",
         "EjemploMVC",
         "EjemploJerarquia",
-        "Prueba/src",
         "CursosMVC",
-        "TareaMVC"
+        "Programacion DAW/Clases/src/Prueba"
     ]
 }
