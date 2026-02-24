@@ -28,56 +28,85 @@ public class EjemploGUI8 extends JFrame implements ActionListener {
             }
         }
     }
+@Override
+public void actionPerformed(ActionEvent e) {
+    JButton btn = (JButton) e.getSource();
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton btn = (JButton) e.getSource();
+    
+    if (!btn.getText().isEmpty()) return;
 
-        // Ignorar si ya hay X u O
-        if (!btn.getText().isEmpty()) return;
+    btn.setText(turnoX ? "X" : "O");
 
-        btn.setText(turnoX ? "X" : "O");
-        turnoX = !turnoX;
+    String ganador = obtenerGanador();
+    if (!ganador.isEmpty()) {
+        if (ganador.equals("X")) {
+            JOptionPane.showMessageDialog(this, "¡Ha ganado el usuario!");
+        } else {
+            JOptionPane.showMessageDialog(this, "¡Ha ganado la IA!");
+        }
+        reiniciar();
+        return;
+    } else if (tableroLleno()) {
+        JOptionPane.showMessageDialog(this, "Empate");
+        reiniciar();
+        return;
+    }
 
-        if (hayGanador()) {
-            JOptionPane.showMessageDialog(this, "¡Hay ganador!");
+    turnoX = !turnoX;
+
+    // Turno de IA si es O
+    if (!turnoX) {
+        jugadaIA();
+
+        ganador = obtenerGanador();
+        if (!ganador.isEmpty()) {
+            if (ganador.equals("X")) {
+                JOptionPane.showMessageDialog(this, "¡Ha ganado el usuario!");
+            } else {
+                JOptionPane.showMessageDialog(this, "¡Ha ganado la IA!");
+            }
             reiniciar();
+            return;
         } else if (tableroLleno()) {
             JOptionPane.showMessageDialog(this, "Empate");
             reiniciar();
+            return;
         }
-    }
 
-    private boolean hayGanador() {
-        // Filas
-        for (int i = 0; i < 3; i++) {
-            if (!botones[i][0].getText().isEmpty() &&
-                botones[i][0].getText().equals(botones[i][1].getText()) &&
-                botones[i][0].getText().equals(botones[i][2].getText())) {
-                return true;
-            }
-        }
-        // Columnas
-        for (int j = 0; j < 3; j++) {
-            if (!botones[0][j].getText().isEmpty() &&
-                botones[0][j].getText().equals(botones[1][j].getText()) &&
-                botones[0][j].getText().equals(botones[2][j].getText())) {
-                return true;
-            }
-        }
-        // Diagonales
-        if (!botones[0][0].getText().isEmpty() &&
-            botones[0][0].getText().equals(botones[1][1].getText()) &&
-            botones[0][0].getText().equals(botones[2][2].getText())) {
-            return true;
-        }
-        if (!botones[0][2].getText().isEmpty() &&
-            botones[0][2].getText().equals(botones[1][1].getText()) &&
-            botones[0][2].getText().equals(botones[2][0].getText())) {
-            return true;
-        }
-        return false;
+        turnoX = !turnoX; 
     }
+}
+
+private String obtenerGanador() {
+    // Filas
+    for (int i = 0; i < 3; i++) {
+        if (!botones[i][0].getText().isEmpty() &&
+            botones[i][0].getText().equals(botones[i][1].getText()) &&
+            botones[i][0].getText().equals(botones[i][2].getText())) {
+            return botones[i][0].getText();
+        }
+    }
+    // Columnas
+    for (int j = 0; j < 3; j++) {
+        if (!botones[0][j].getText().isEmpty() &&
+            botones[0][j].getText().equals(botones[1][j].getText()) &&
+            botones[0][j].getText().equals(botones[2][j].getText())) {
+            return botones[0][j].getText();
+        }
+    }
+    // Diagonales
+    if (!botones[0][0].getText().isEmpty() &&
+        botones[0][0].getText().equals(botones[1][1].getText()) &&
+        botones[0][0].getText().equals(botones[2][2].getText())) {
+        return botones[0][0].getText();
+    }
+    if (!botones[0][2].getText().isEmpty() &&
+        botones[0][2].getText().equals(botones[1][1].getText()) &&
+        botones[0][2].getText().equals(botones[2][0].getText())) {
+        return botones[0][2].getText();
+    }
+    return ""; // nadie ganó
+}
 
     private boolean tableroLleno() {
         for (int i = 0; i < 3; i++)
@@ -85,6 +114,22 @@ public class EjemploGUI8 extends JFrame implements ActionListener {
                 if (botones[i][j].getText().isEmpty()) return false;
         return true;
     }
+    private void jugadaIA() {
+    // IA elige una casilla vacía al azar
+    java.util.List<JButton> vacios = new java.util.ArrayList<>();
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (botones[i][j].getText().isEmpty()) {
+                vacios.add(botones[i][j]);
+            }
+        }
+    }
+
+    if (!vacios.isEmpty()) {
+        int indice = (int) (Math.random() * vacios.size());
+        vacios.get(indice).setText("O");
+    }
+}
 
     private void reiniciar() {
         for (int i = 0; i < 3; i++)
@@ -92,6 +137,9 @@ public class EjemploGUI8 extends JFrame implements ActionListener {
                 botones[i][j].setText("");
         turnoX = true;
     }
+
+    
+
 
     // Método main para ejecutar la aplicación
     public static void main(String[] args) {
