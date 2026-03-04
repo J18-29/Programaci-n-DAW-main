@@ -8,8 +8,8 @@ import javax.swing.table.DefaultTableModel;
 public class CategoriaView extends JPanel {
 
     //Campos
-    public JTextField txtCodigo= new JTextField();
-    public JTextField txtNombre= new JTextField();
+    public JTextField txtCodigo= new JTextField(5);
+    public JTextField txtNombre= new JTextField(15);
 
     //Botones
     public JButton btnAgregar= new JButton("Agregar");
