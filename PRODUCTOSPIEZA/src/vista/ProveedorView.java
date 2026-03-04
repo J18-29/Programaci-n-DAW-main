@@ -19,14 +19,20 @@ public class ProveedorView extends JPanel {
     public JButton btnLimpiar= new JButton("Limpiar");
 
     //Tabla
-    public DefaultTableModel modeloTabla= new DefaultTableModel(new Object[]{"Código", "Nombre"}, 0);
-    public JTable tabla= new JTable(modeloTabla);
+    public DefaultTableModel modeloTabla = new DefaultTableModel(
+        new Object[]{"Código", "Dirección", "Ciudad", "Provincia"}, 0
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    public JTable tabla = new JTable(modeloTabla);
 
-    public ProveedorView(){
-
+    public ProveedorView() {
         setLayout(new BorderLayout());
 
-        //====PANEL SUPERIOR====
+        //====PANEL SUPERIOR==== 
         JPanel panelFormulario= new JPanel();
         panelFormulario.setBorder(
                      BorderFactory.createTitledBorder("Formulario de Proveedor"));
@@ -50,9 +56,8 @@ public class ProveedorView extends JPanel {
         //====PANEL INFERIOR====
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBorder(
-                         BorderFactory.createTitledBorder("Lista de Categorías"));
+                         BorderFactory.createTitledBorder("Lista de Proveedores"));
         add(panelFormulario, BorderLayout.NORTH);
         add(scroll, BorderLayout.CENTER);
     }
-    
 }

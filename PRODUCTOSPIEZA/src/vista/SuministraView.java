@@ -4,25 +4,33 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+
+
 public class SuministraView extends JPanel {
-    //Campos
+    // Campos
     public JTextField txtCodProveedor= new JTextField(5);
     public JTextField txtCodPieza= new JTextField(15);
     public JTextField txtCantidad= new JTextField(5);
     public JTextField txtFecha= new JTextField(10);
 
-
-    //Botones
+    // Botones
     public JButton btnAgregar= new JButton("Agregar");
     public JButton btnModificar= new JButton("Modificar");
     public JButton btnEliminar= new JButton("Eliminar");
     public JButton btnLimpiar= new JButton("Limpiar");
 
-    //Tabla
-    public DefaultTableModel modeloTabla= new DefaultTableModel(new Object[]{"Código Proveedor", "Código Pieza"}, 0);
-    public JTable tabla= new JTable(modeloTabla);
+    // Tabla
+    public DefaultTableModel modeloTabla = new DefaultTableModel(
+        new Object[]{"Código Proveedor", "Código Pieza", "Cantidad", "Fecha"}, 0
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    public JTable tabla = new JTable(modeloTabla);
 
-    public SuministraView(){
+    public SuministraView() {
 
         setLayout(new BorderLayout());
 
@@ -30,6 +38,7 @@ public class SuministraView extends JPanel {
         JPanel panelFormulario= new JPanel();
         panelFormulario.setBorder(
                      BorderFactory.createTitledBorder("Formulario de Suministra"));
+
         panelFormulario.add(new JLabel("Código Proveedor:"));
         panelFormulario.add(txtCodProveedor);
 
@@ -39,7 +48,7 @@ public class SuministraView extends JPanel {
         panelFormulario.add(new JLabel("Cantidad:"));
         panelFormulario.add(txtCantidad);
 
-        panelFormulario.add(new JLabel("Fecha:MM-DD-AAAA"));
+        panelFormulario.add(new JLabel("Fecha (MM-DD-AAAA):"));
         panelFormulario.add(txtFecha);
 
         panelFormulario.add(btnAgregar);
@@ -54,5 +63,4 @@ public class SuministraView extends JPanel {
         add(panelFormulario, BorderLayout.NORTH);
         add(scroll, BorderLayout.CENTER);
     }
-    
 }
