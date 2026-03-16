@@ -249,52 +249,54 @@ public class LibroCONTROLLERS {
         view.tabla.clearSelection();
     }
 
-    private void cargarImagen(String imagenURL, JLabel label) {
+  private void cargarImagen(String imagenURL, JLabel label) {
 
-        label.setIcon(null);
-        label.setText("");
+    label.setIcon(null);
+    label.setText("");
 
-        // Si no hay URL no se carga imagen
-        if (imagenURL == null || imagenURL.isEmpty()) {
-            return;
-        }
-
-        try {
-
-            URL url = new URL(imagenURL);
-
-            // Si es GIF animado
-            if (imagenURL.toLowerCase().endsWith(".gif")) {
-
-                ImageIcon icon = new ImageIcon(url);
-                label.setIcon(icon);
-
-            } else {
-
-                // Cargar imagen estática
-                BufferedImage img = ImageIO.read(url);
-
-                if (img != null) {
-
-                    int ancho = label.getWidth();
-                    int alto = label.getHeight();
-
-                    // Escalar imagen al tamaño del JLabel
-                    Image imgEscalada = img.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-                    label.setIcon(new ImageIcon(imgEscalada));
-
-                } else {
-                    label.setText("No se pudo cargar la imagen");
-                }
-            }
-
-            label.setHorizontalAlignment(JLabel.CENTER);
-
-        } catch (IOException e) {
-
-            label.setText("Error al cargar la imagen");
-            e.printStackTrace();
-        }
+    // Si no hay URL no se carga imagen
+    if (imagenURL == null || imagenURL.isEmpty()) {
+        return;
     }
 
+    try {
+        Image imgEscalada;
+
+        if (imagenURL.startsWith("data:image")) {
+            // Manejo de Base64
+            String base64 = imagenURL.substring(imagenURL.indexOf(",") + 1);
+            byte[] imagenBytes = java.util.Base64.getDecoder().decode(base64);
+            ImageIcon icon = new ImageIcon(imagenBytes);
+
+            imgEscalada = icon.getImage().getScaledInstance(
+                    label.getWidth(),
+                    label.getHeight(),
+                    Image.SCALE_SMOOTH
+            );
+
+        } else {
+            // URL normal (http/https)
+            URL url = new URL(imagenURL);
+            BufferedImage img = ImageIO.read(url);
+
+            if (img == null) {
+                label.setText("No se pudo cargar la imagen");
+                return;
+            }
+
+            imgEscalada = img.getScaledInstance(
+                    label.getWidth(),
+                    label.getHeight(),
+                    Image.SCALE_SMOOTH
+            );
+        }
+
+        label.setIcon(new ImageIcon(imgEscalada));
+        label.setHorizontalAlignment(JLabel.CENTER);
+
+    } catch (Exception e) {
+        label.setText("Error al cargar la imagen");
+        e.printStackTrace();
+    }
+}
 }

@@ -8,17 +8,17 @@ CREATE TABLE IF NOT EXISTS AUTOR(
     telefono VARCHAR(15)
 );
 CREATE TABLE IF NOT EXISTS LIBRO(
-    id INT PRIMARY KEY AUTO_INCREMENT,    -- Identificador único del libro
+    id INT PRIMARY KEY AUTO_INCREMENT,     -- Identificador único del libro
     titulo VARCHAR(100) NOT NULL,          -- Título del libro
-    isbn VARCHAR(13),               -- Código ISBN del libro
-    anio INT,                   -- Año de publicación
-    descripcion VARCHAR(200),   -- Descripción corta del libro
-    url VARCHAR(100), -- URL imagen
+    isbn VARCHAR(13),                      -- Código ISBN del libro
+    anio INT,                              -- Año de publicación
+    descripcion VARCHAR(200),              -- Descripción corta del libro
+    url TEXT,                              -- URL o imagen (permite mucho más texto)
     id_autor INT,
-    FOREIGN KEY (id_autor)
-    REFERENCES AUTOR(id)
     
-); 
+    FOREIGN KEY (id_autor) 
+    REFERENCES AUTOR(id)
+);
 CREATE TABLE IF NOT EXISTS USUARIO(
 	codigo INT AUTO_INCREMENT PRIMARY KEY,
 	telefono VARCHAR(15),
