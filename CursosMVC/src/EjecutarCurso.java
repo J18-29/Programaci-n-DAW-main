@@ -9,7 +9,7 @@ import src.Vista.CursoView;
 import src.Controlador.CursoController;
 
 
-
+// Comentario de prueba para el segundo commit.
 public class EjecutarCurso {
 
     public static void main(String[] args) {
