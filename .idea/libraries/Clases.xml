@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Clases">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/Cartas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/TareasMVC.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/lib.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/BlackJack.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

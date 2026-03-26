@@ -1,0 +1,142 @@
+[
+    {
+        "superhéroe": "Batman",
+        "editor":"DC Comics",
+        "alter_ego": "Bruce Wayne",
+        "primera_aparición": "Detective Comics #27",
+        "personajes": "Bruce Wayne"
+    },
+    {
+        "superhéroe": "Superman",
+        "editor":"DC Comics",
+        "alter_ego":"Kal-El",
+        "primera_aparición": "Action Comics #1",
+        "personajes":"Kal-El"
+    },
+    {
+        "superhéroe": "Flash",
+        "editor":"DC Comics",
+        "alter_ego": "Jay Garrick",
+        "primera_aparición": "Flash Comics #1",
+        "personajes": "Jay Garrick, Barry Allen, Wally West, Bart Allen"
+    },
+    {
+        "superhéroe":"Linterna Verde",
+        "editor":"DC Comics",
+        "alter_ego": "Alan Scott",
+        "primera_aparición": "All-American Comics #16",
+        "personajes": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro y Simon Baz"
+    },
+    {
+        "superhéroe":"Flecha Verde",
+        "editor":"DC Comics",
+        "alter_ego": "Oliver Queen",
+        "first_appearance":"Más cómics divertidos #73",
+        "personajes":"Oliver Queen"
+    },
+    {
+        "superhéroe":"Mujer Maravilla",
+        "editor":"DC Comics",
+        "alter_ego":"Princesa Diana",
+        "primera_aparición": "All Star Comics #8",
+        "personajes":"Princesa Diana"
+    },
+    {
+        "superhéroe": "Martian Manhunter",
+        "editor":"DC Comics",
+        "alter_ego":"J'onn J'onzz",
+        "primera_aparición": "Detective Comics #225",
+        "personajes": "Martian Manhunter"
+    },
+    {
+        "superhéroe": "Robin/Nightwing",
+        "editor":"DC Comics",
+        "alter_ego": "Dick Grayson",
+        "primera_aparición": "Detective Comics #38",
+        "personajes":"Dick Grayson"
+    },
+    {
+        "superhéroe":"Blue Beetle",
+        "editor":"DC Comics",
+        "alter_ego": "Dan Garret",
+        "primera_aparición": "Mystery Men Comics #1",
+        "personajes": "Dan Garret, Ted Kord, Jaime Reyes"
+    },
+    {
+        "superhéroe": "Canario Negro",
+        "editor":"DC Comics",
+        "alter_ego": "Dinah Drake",
+        "primera_aparición": "Flash Comics #86",
+        "personajes": "Dinah Drake, Dinah Lance"
+    },
+    {
+        "superhéroe": "Hombre Araña",
+        "editor":"Marvel Comics",
+        "alter_ego": "Peter Parker",
+        "first_appearance":"Fantasía asombrosa n.° 15",
+        "personajes":"Peter Parker"
+    },
+    {
+        "superhéroe": "Capitán América",
+        "editor":"Marvel Comics",
+        "alter_ego": "Steve Rogers",
+        "first_appearance":"Capitán América Comics #1",
+        "personajes": "Steve Rogers"
+    },
+    {
+        "superhéroe": "Iron Man",
+        "editor":"Marvel Comics",
+        "alter_ego": "Tony Stark",
+        "first_appearance":"Cuentos de suspenso #39",
+        "personajes": "Tony Stark"
+    },
+    {
+        "superhéroe": "Thor",
+        "editor":"Marvel Comics",
+        "alter_ego": "Thor Odinson",
+        "first_appearance": "Viaje al Misterio #83",
+        "personajes": "Thor Odinson"
+    },
+    {
+        "superhéroe":"Hulk",
+        "editor":"Marvel Comics",
+        "alter_ego": "Bruce Banner",
+        "first_appearance":"El Increíble Hulk #1",
+        "personajes": "Bruce Banner"
+    },
+    {
+        "superhéroe": "Lobezno",
+        "editor":"Marvel Comics",
+        "alter_ego": "James Howlett",
+        "first_appearance":"El Increíble Hulk #180",
+        "personajes": "James Howlett"
+    },
+    {
+        "superhéroe":"Daredevil",
+        "editor":"Marvel Comics",
+        "alter_ego": "Matthew Michael Murdock",
+        "primera_aparición": "Daredevil #1",
+        "personajes": "Matthew Michael Murdock"
+    },
+    {
+        "superhéroe":"Ojo de Halcón",
+        "editor":"Marvel Comics",
+        "alter_ego": "Clinton Francis Barton",
+        "first_appearance": "Cuentos de suspenso n.° 57",
+        "personajes": "Clinton Francis Barton"
+    },
+    {
+        "superhéroe": "Cíclope",
+        "editor":"Marvel Comics",
+        "alter_ego": "Scott Summers",
+        "primera_aparición": "X-Men #1",
+        "personajes": "Scott Summers"
+    },
+    {
+        "superhéroe": "Silver Surfer",
+        "editor":"Marvel Comics",
+        "alter_ego": "Norrin Radd",
+        "first_appearance":"Los Cuatro Fantásticos #48",
+        "personajes": "Norrin Radd"
+    }
+]

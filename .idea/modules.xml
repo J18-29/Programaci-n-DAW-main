@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GUI/GUI.iml" filepath="$PROJECT_DIR$/GUI/GUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PRODUCTOSPIEZA/PRODUCTOSPIEZA.iml" filepath="$PROJECT_DIR$/PRODUCTOSPIEZA/PRODUCTOSPIEZA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programaci-n-DAW-main.iml" filepath="$PROJECT_DIR$/Programaci-n-DAW-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Proyect/Proyect/Proyect.iml" filepath="$PROJECT_DIR$/Proyect/Proyect/Proyect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Proyect/Proyect2.iml" filepath="$PROJECT_DIR$/Proyect/Proyect2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UNIDAD7/UNIDAD7.iml" filepath="$PROJECT_DIR$/UNIDAD7/UNIDAD7.iml" />
+    </modules>
+  </component>
+</project>

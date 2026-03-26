@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/src/Trenes.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/src/BuscaLibro.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/src/didactica.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/src/Clases.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/src/Instituto.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Programacion DAW/Clases/src/lujo.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
