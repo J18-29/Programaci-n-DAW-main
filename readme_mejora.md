@@ -1,1 +1,1 @@
-"Esta es una mejora de la documentación del proyecto."
+"Esta es una mejora de prueba de la documentación del proyecto."
